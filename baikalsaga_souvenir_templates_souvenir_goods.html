@@ -1,0 +1,14 @@
+{% extends 'souvenir/base.html' %}
+
+{% block content %}
+<h1>{{goods.title}}</h1>
+
+{% if goods.photo %}
+<p><img class="img-article-left thumb" src="{{goods.photo.url}}"></p>
+{% endif %}
+
+<p>{{goods.description}}</p>
+
+<p><b>Цена: {{goods.price}}</b></p>
+
+{% endblock %}

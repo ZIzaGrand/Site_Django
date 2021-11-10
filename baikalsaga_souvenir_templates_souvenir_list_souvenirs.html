@@ -1,0 +1,22 @@
+    {% for p in posts %}
+    <li><div class="article-panel">
+        <p class="first">Категория: {{p.cat}}</p>
+        {% if p.availability %}
+        <p style="color: green" class="last">В наличии</p>
+        {% else %}
+        <p style="color: red" class="last">Нет в наличии</p>
+        {% endif %}
+    </div>
+
+        {% if p.photo %}
+        <p><img class="img-article-left thumb" src="{{p.photo.url}}"></p>
+        {% endif %}
+
+        <h2>{{p.title|truncatechars:30}}</h2>
+        <p>{{p.description}}</p>
+        <p>{{p.price|add:"400"}}</p>
+        <div class="clear"></div>
+        <p class="link-read-post"><a href="{{ p.get_absolute_url }}">Купить вещь</a></p>
+        <hr color="red" size="30">
+    </li>
+    {% endfor %}
